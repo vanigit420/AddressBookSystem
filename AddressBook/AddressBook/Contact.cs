@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AddressBook
 {
-    internal class Contact
+    public class Contacts
     {
         // variables
         public string firstName;
@@ -17,9 +17,8 @@ namespace AddressBook
         public long zipCode;
         public long phoneNumber;
         public string email;
-
         //// constructor that gets user detail and store it in the current object.
-        public Contact(string firstName, string lastName, string address, string city, string state, long zipCode, long phoneNumber, string email)
+        public Contacts(string firstName, string lastName, string address, string city, string state, long zipCode, long phoneNumber, string email)
         {
             this.firstName = firstName;
             this.lastName = lastName;
@@ -30,7 +29,6 @@ namespace AddressBook
             this.phoneNumber = phoneNumber;
             this.email = email;
         }
-
         /// <summary>
         /// To display the contact details.
         /// </summary>
@@ -43,7 +41,7 @@ namespace AddressBook
             Console.WriteLine("State:{0}", this.state);
             Console.WriteLine("Zipcode:{0}", this.zipCode);
             Console.WriteLine("phone number:{0}", this.phoneNumber);
-            Console.WriteLine("Email:{0}", this.email);
+            Console.WriteLine("Email:{0}", this.email + "\n");
         }
     }
 }
