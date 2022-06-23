@@ -17,6 +17,7 @@ namespace AddressBook
         public long zipCode;
         public long phoneNumber;
         public string email;
+
         //// constructor that gets user detail and store it in the current object.
         public Contacts(string firstName, string lastName, string address, string city, string state, long zipCode, long phoneNumber, string email)
         {

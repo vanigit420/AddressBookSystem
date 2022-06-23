@@ -8,22 +8,38 @@ namespace AddressBook
 {
     public class AddressBookMain
     {
-        List<Contact> contactList = new List<Contact>();
-
+        //Collection Class
+        private List<Contacts> contactList;
+        //Constructor.
+        public AddressBookMain()
+        {
+            this.contactList = new List<Contacts>();
+        }
         //Method to Add Contact
         public void AddContactDetails(string firstName, string lastName, string address, string city, string state, long zipCode, long phoneNumber, string email)
         {
-            Contact contactDetails = new Contact(firstName, lastName, address, city, state, zipCode, phoneNumber, email);
-            this.contactList.Add(contactDetails);
-        }
 
+            // finding the data that already has the same first name
+            Contacts contact = this.contactList.Find(x => x.firstName.Equals(firstName));
+            // if same name is not present then add into address book
+            if (contact == null)
+            {
+                Contacts contactDetails = new Contacts(firstName, lastName, address, city, state, zipCode, phoneNumber, email);
+                this.contactList.Add(contactDetails);
+            }
+            // print person already exists in the address book
+            else
+            {
+                Console.WriteLine("Person, {0} is already exist in the address book", firstName);
+            }
+        }
         //Display Contact
         public void DisplayContact()
         {
             //cheks if ContactList is empty or not.
             if (this.contactList.Count != 0)
             {
-                foreach (Contact data in this.contactList)
+                foreach (Contacts data in this.contactList)
                 {
                     data.Display();
                 }
@@ -31,12 +47,11 @@ namespace AddressBook
             else
                 Console.WriteLine("No Contacts in AddressBook \n");
         }
-
         //Method to Edit Contact 
         public void EditContact(string name)
         {
             // checks for every object whether the name is equal the given name
-            foreach (Contact data in this.contactList)
+            foreach (Contacts data in this.contactList)
             {
                 if (data.firstName.Equals(name))
                 {
@@ -89,11 +104,10 @@ namespace AddressBook
                     Console.WriteLine("No Contact With this Name! \n");
             }
         }
-
         //Method to Delete a Person
         public void DeleteContact(string dName)
         {
-            foreach (Contact ct in this.contactList)
+            foreach (Contacts ct in this.contactList)
             {
                 if (ct.firstName.Equals(dName))
                 {
@@ -103,6 +117,5 @@ namespace AddressBook
                 }
             }
         }
-
     }
 }
