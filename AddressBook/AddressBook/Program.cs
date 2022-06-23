@@ -8,15 +8,14 @@ namespace AddressBook
 {
     internal class Program
     {
-
-        //Main  Method / program Entry Point
+        //Main  Method 
         static void Main(string[] args)
         {
+
+            Console.WriteLine("Welcome to Address Book Progam \n");
             AddressBook createAddressBook = new AddressBook();
             createAddressBook.ReadInput();
             Console.ReadLine();
-
-
 
         }
     }
